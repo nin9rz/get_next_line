@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jenibaud <jean.nibaudeau2@outlook.fr>      +#+  +:+       +#+        */
+/*   By: jenibaud <jenibaud@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 15:15:51 by jenibaud          #+#    #+#             */
-/*   Updated: 2024/10/28 15:22:51 by jenibaud         ###   ########.fr       */
+/*   Updated: 2024/11/12 13:34:48 by jenibaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	main(int argc, char **argv)
 	do {
 		free(str);
 		str = get_next_line(fd);
-		printf("|%s|", str);
+		printf("%s", str);
 	} while (str != NULL);
 	return (0);
 }
