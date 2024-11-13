@@ -6,7 +6,7 @@
 /*   By: jenibaud <jenibaud@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 11:26:44 by jenibaud          #+#    #+#             */
-/*   Updated: 2024/11/13 11:40:32 by jenibaud         ###   ########.fr       */
+/*   Updated: 2024/11/13 17:12:48 by jenibaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,10 @@ char	*get_next_line(int fd)
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
 	line = NULL;
-	// 1. read from fd and add to linked list
 	read_and_stash(fd, &stash);
 	if (stash == NULL)
 		return (NULL);
-	// 2. extract from stash to line
 	extract_line(stash, &line);
-	// 3. clean up stash
 	clean_stash(&stash);
 	if (line[0] == '\0')
 	{
@@ -52,8 +49,10 @@ void	read_and_stash(int fd, t_list **stash)
 		if (buf == NULL)
 			return ;
 		readed = (int)read(fd, buf, BUFFER_SIZE);
-		if ((*stash == NULL && readed == 0) || readed == -1)
+		if (readed == -1 || (*stash == NULL && readed == 0))
 		{
+			free_stash(*stash);
+			*stash = NULL;
 			free(buf);
 			return ;
 		}
@@ -146,7 +145,7 @@ void	clean_stash(t_list **stash)
 		i++;
 	if (last->content && last->content[i] == '\n')
 		i++;
-	clean_node->content = malloc(sizeof(char) * ((ft_strlen(last->content) - i) + 1));
+	clean_node->content = malloc(((ft_strlen(last->content) - i) + 1));
 	if (clean_node->content == NULL)
 		return ;
 	j = 0;
