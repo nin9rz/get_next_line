@@ -6,14 +6,13 @@
 /*   By: jenibaud <jenibaud@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 11:26:37 by jenibaud          #+#    #+#             */
-/*   Updated: 2024/11/13 17:12:11 by jenibaud         ###   ########.fr       */
+/*   Updated: 2024/11/29 14:31:10 by jenibaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
 
-# include <stdio.h> // REMOVE FOR PUSH
 # include <stdlib.h>
 
 # include <sys/types.h>
